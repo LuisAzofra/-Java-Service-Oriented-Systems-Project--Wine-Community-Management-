@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file was auto-generated from WSDL -->
+<!-- by the Apache Axis2 version: 1.6.2  Built on : Apr 17, 2012 (05:33:49 IST) -->
+<serviceGroup>
+    <service name="WineSocialUPM">
+        <messageReceivers>
+            <messageReceiver mep="http://www.w3.org/ns/wsdl/in-out" 
+            class="es.upm.etsiinf.sos.WineSocialUPMMessageReceiverInOut"/>
+        </messageReceivers>
+        <parameter name="ServiceClass">es.upm.etsiinf.sos.WineSocialUPMSkeleton</parameter>
+        <parameter name="useOriginalwsdl">true</parameter>
+        <parameter name="modifyUserWSDLPortAddress">true</parameter>
+        <operation name="getMyFollowers" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://sos.etsiinf.upm.es">
+            <actionMapping>urn:getMyFollowers</actionMapping>
+            <outputActionMapping>urn:getMyFollowersResponse</outputActionMapping>
+        </operation>
+        <operation name="removeUser" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://sos.etsiinf.upm.es">
+            <actionMapping>urn:removeUser</actionMapping>
+            <outputActionMapping>urn:removeUserResponse</outputActionMapping>
+        </operation>
+        <operation name="addFollower" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://sos.etsiinf.upm.es">
+            <actionMapping>urn:addFollower</actionMapping>
+            <outputActionMapping>urn:addFollowerResponse</outputActionMapping>
+        </operation>
+        <operation name="logout" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://sos.etsiinf.upm.es">
+            <actionMapping>urn:logout</actionMapping>
+            <outputActionMapping>urn:logoutResponse</outputActionMapping>
+        </operation>
+        <operation name="removeWine" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://sos.etsiinf.upm.es">
+            <actionMapping>urn:removeWine</actionMapping>
+            <outputActionMapping>urn:removeWineResponse</outputActionMapping>
+        </operation>
+        <operation name="getMyRates" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://sos.etsiinf.upm.es">
+            <actionMapping>urn:getMyRates</actionMapping>
+            <outputActionMapping>urn:getMyRatesResponse</outputActionMapping>
+        </operation>
+        <operation name="unfollow" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://sos.etsiinf.upm.es">
+            <actionMapping>urn:unfollow</actionMapping>
+            <outputActionMapping>urn:unfollowResponse</outputActionMapping>
+        </operation>
+        <operation name="addUser" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://sos.etsiinf.upm.es">
+            <actionMapping>urn:addUser</actionMapping>
+            <outputActionMapping>urn:addUserResponse</outputActionMapping>
+        </operation>
+        <operation name="rateWine" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://sos.etsiinf.upm.es">
+            <actionMapping>urn:rateWine</actionMapping>
+            <outputActionMapping>urn:rateWineResponse</outputActionMapping>
+        </operation>
+        <operation name="addWine" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://sos.etsiinf.upm.es">
+            <actionMapping>urn:addWine</actionMapping>
+            <outputActionMapping>urn:addWineResponse</outputActionMapping>
+        </operation>
+        <operation name="getWines" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://sos.etsiinf.upm.es">
+            <actionMapping>urn:getWines</actionMapping>
+            <outputActionMapping>urn:getWinesResponse</outputActionMapping>
+        </operation>
+        <operation name="changePassword" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://sos.etsiinf.upm.es">
+            <actionMapping>urn:changePassword</actionMapping>
+            <outputActionMapping>urn:changePasswordResponse</outputActionMapping>
+        </operation>
+        <operation name="login" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://sos.etsiinf.upm.es">
+            <actionMapping>urn:login</actionMapping>
+            <outputActionMapping>urn:loginResponse</outputActionMapping>
+        </operation>
+        <operation name="getMyFollowerRates" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://sos.etsiinf.upm.es">
+            <actionMapping>urn:getMyFollowerRates</actionMapping>
+            <outputActionMapping>urn:getMyFollowerRatesResponse</outputActionMapping>
+        </operation>
+    </service>
+</serviceGroup>
