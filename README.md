@@ -38,8 +38,9 @@ Run the application: Navigate to the bin folder and execute:
 bash
 
 java MainClassName
-Technologies Used
+
+## Technologies Used
 Java: Core programming language for the project, showcasing object-oriented principles and service-oriented design.
 Service-Oriented Architecture (SOA): Modular service-based approach for managing different community aspects.
-License
+## License
 This project is licensed under the MIT License.
