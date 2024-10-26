@@ -31,12 +31,12 @@ Configuration files, if any, should use the `.yaml` or `.yml` extension for cons
 Compile the project: Ensure that you have Java installed, then run:
 
 bash
-Copiar código
+
 javac -d bin src/**/*.java
 Run the application: Navigate to the bin folder and execute:
 
 bash
-Copiar código
+
 java MainClassName
 Technologies Used
 Java: Core programming language for the project, showcasing object-oriented principles and service-oriented design.
