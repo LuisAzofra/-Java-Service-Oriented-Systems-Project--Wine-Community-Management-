@@ -40,7 +40,8 @@ bash
 java MainClassName
 
 ## Technologies Used
-Java: Core programming language for the project, showcasing object-oriented principles and service-oriented design.
-Service-Oriented Architecture (SOA): Modular service-based approach for managing different community aspects.
+- Java: Core programming language for the project, showcasing object-oriented principles and service-oriented design.
+
+- Service-Oriented Architecture (SOA): Modular service-based approach for managing different community aspects.
 ## License
 This project is licensed under the MIT License.
