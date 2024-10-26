@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl2:description xmlns:wsdl2="http://www.w3.org/ns/wsdl" xmlns:wsoap="http://www.w3.org/ns/wsdl/soap" xmlns:whttp="http://www.w3.org/ns/wsdl/http" xmlns:ns="http://sos.etsiinf.upm.es" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsdlx="http://www.w3.org/ns/wsdl-extensions" xmlns:tns="http://sos.etsiinf.upm.es" xmlns:wrpc="http://www.w3.org/ns/wsdl/rpc" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ax21="http://model.sos.etsiinf.upm.es/xsd" xmlns:ns1="http://org.apache.axis2/xsd" targetNamespace="http://sos.etsiinf.upm.es">
+    <wsdl2:types>
+        <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://model.sos.etsiinf.upm.es/xsd">
+            <xs:complexType name="Username">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="username" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="AddUserResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="pwd" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="response" type="xs:boolean"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Response">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="response" type="xs:boolean"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="WineList">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="grapes" nillable="true" type="xs:string"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="names" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="result" type="xs:boolean"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="years" nillable="true" type="xs:int"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="WinesRatedList">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="grapes" nillable="true" type="xs:string"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="names" nillable="true" type="xs:string"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="rates" nillable="true" type="xs:int"/>
+                    <xs:element minOccurs="0" name="result" type="xs:boolean"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="years" nillable="true" type="xs:int"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Wine">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="grape" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="year" type="xs:int"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="WineRated">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="grape" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="rate" type="xs:int"/>
+                    <xs:element minOccurs="0" name="year" type="xs:int"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="User">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="pwd" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="PasswordPair">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="newpwd" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="oldpwd" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="FollowerList">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="followers" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="result" type="xs:boolean"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+        <xs:schema xmlns:ax22="http://model.sos.etsiinf.upm.es/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://sos.etsiinf.upm.es">
+            <xs:import namespace="http://model.sos.etsiinf.upm.es/xsd"/>
+            <xs:element name="addUser">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="args0" nillable="true" type="ax22:Username"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="addUserResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax22:AddUserResponse"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="addFollower">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="args0" nillable="true" type="ax22:Username"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="addFollowerResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax22:Response"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getWines">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getWinesResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax22:WineList"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getMyRates">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getMyRatesResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax22:WinesRatedList"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="removeWine">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="args0" nillable="true" type="ax22:Wine"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="removeWineResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax22:Response"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getMyFollowerRates">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="args0" nillable="true" type="ax22:Username"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getMyFollowerRatesResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax22:WinesRatedList"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="rateWine">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="args0" nillable="true" type="ax22:WineRated"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="rateWineResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax22:Response"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="logout">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="logoutResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax22:Response"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="login">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="args0" nillable="true" type="ax22:User"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="loginResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax22:Response"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="changePassword">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="args0" nillable="true" type="ax22:PasswordPair"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="changePasswordResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax22:Response"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getMyFollowers">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getMyFollowersResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax22:FollowerList"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="addWine">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="args0" nillable="true" type="ax22:Wine"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="addWineResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax22:Response"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="unfollow">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="args0" nillable="true" type="ax22:Username"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="unfollowResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax22:Response"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="removeUser">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="args0" nillable="true" type="ax22:Username"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="removeUserResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax22:Response"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl2:types>
+    <wsdl2:interface name="ServiceInterface">
+        <wsdl2:operation name="addWine" style="http://www.w3.org/ns/wsdl/style/rpc" wrpc:signature="args0 #in return #return " pattern="http://www.w3.org/ns/wsdl/in-out">
+            <wsdl2:input element="ns:addWine" wsaw:Action="urn:addWine"/>
+            <wsdl2:output element="ns:addWineResponse" wsaw:Action="urn:addWineResponse"/>
+        </wsdl2:operation>
+        <wsdl2:operation name="rateWine" style="http://www.w3.org/ns/wsdl/style/rpc" wrpc:signature="args0 #in return #return " pattern="http://www.w3.org/ns/wsdl/in-out">
+            <wsdl2:input element="ns:rateWine" wsaw:Action="urn:rateWine"/>
+            <wsdl2:output element="ns:rateWineResponse" wsaw:Action="urn:rateWineResponse"/>
+        </wsdl2:operation>
+        <wsdl2:operation name="addUser" style="http://www.w3.org/ns/wsdl/style/rpc" wrpc:signature="args0 #in return #return " pattern="http://www.w3.org/ns/wsdl/in-out">
+            <wsdl2:input element="ns:addUser" wsaw:Action="urn:addUser"/>
+            <wsdl2:output element="ns:addUserResponse" wsaw:Action="urn:addUserResponse"/>
+        </wsdl2:operation>
+        <wsdl2:operation name="getMyFollowerRates" style="http://www.w3.org/ns/wsdl/style/rpc" wrpc:signature="args0 #in return #return " pattern="http://www.w3.org/ns/wsdl/in-out">
+            <wsdl2:input element="ns:getMyFollowerRates" wsaw:Action="urn:getMyFollowerRates"/>
+            <wsdl2:output element="ns:getMyFollowerRatesResponse" wsaw:Action="urn:getMyFollowerRatesResponse"/>
+        </wsdl2:operation>
+        <wsdl2:operation name="login" style="http://www.w3.org/ns/wsdl/style/rpc" wrpc:signature="args0 #in return #return " pattern="http://www.w3.org/ns/wsdl/in-out">
+            <wsdl2:input element="ns:login" wsaw:Action="urn:login"/>
+            <wsdl2:output element="ns:loginResponse" wsaw:Action="urn:loginResponse"/>
+        </wsdl2:operation>
+        <wsdl2:operation name="getWines" style="http://www.w3.org/ns/wsdl/style/rpc http://www.w3.org/ns/wsdl/style/iri http://www.w3.org/ns/wsdl/style/multipart" wrpc:signature="return #return " pattern="http://www.w3.org/ns/wsdl/in-out">
+            <wsdl2:input element="ns:getWines" wsaw:Action="urn:getWines"/>
+            <wsdl2:output element="ns:getWinesResponse" wsaw:Action="urn:getWinesResponse"/>
+        </wsdl2:operation>
+        <wsdl2:operation name="changePassword" style="http://www.w3.org/ns/wsdl/style/rpc" wrpc:signature="args0 #in return #return " pattern="http://www.w3.org/ns/wsdl/in-out">
+            <wsdl2:input element="ns:changePassword" wsaw:Action="urn:changePassword"/>
+            <wsdl2:output element="ns:changePasswordResponse" wsaw:Action="urn:changePasswordResponse"/>
+        </wsdl2:operation>
+        <wsdl2:operation name="removeWine" style="http://www.w3.org/ns/wsdl/style/rpc" wrpc:signature="args0 #in return #return " pattern="http://www.w3.org/ns/wsdl/in-out">
+            <wsdl2:input element="ns:removeWine" wsaw:Action="urn:removeWine"/>
+            <wsdl2:output element="ns:removeWineResponse" wsaw:Action="urn:removeWineResponse"/>
+        </wsdl2:operation>
+        <wsdl2:operation name="getMyRates" style="http://www.w3.org/ns/wsdl/style/rpc http://www.w3.org/ns/wsdl/style/iri http://www.w3.org/ns/wsdl/style/multipart" wrpc:signature="return #return " pattern="http://www.w3.org/ns/wsdl/in-out">
+            <wsdl2:input element="ns:getMyRates" wsaw:Action="urn:getMyRates"/>
+            <wsdl2:output element="ns:getMyRatesResponse" wsaw:Action="urn:getMyRatesResponse"/>
+        </wsdl2:operation>
+        <wsdl2:operation name="logout" style="http://www.w3.org/ns/wsdl/style/rpc http://www.w3.org/ns/wsdl/style/iri http://www.w3.org/ns/wsdl/style/multipart" wrpc:signature="return #return " pattern="http://www.w3.org/ns/wsdl/in-out">
+            <wsdl2:input element="ns:logout" wsaw:Action="urn:logout"/>
+            <wsdl2:output element="ns:logoutResponse" wsaw:Action="urn:logoutResponse"/>
+        </wsdl2:operation>
+        <wsdl2:operation name="removeUser" style="http://www.w3.org/ns/wsdl/style/rpc" wrpc:signature="args0 #in return #return " pattern="http://www.w3.org/ns/wsdl/in-out">
+            <wsdl2:input element="ns:removeUser" wsaw:Action="urn:removeUser"/>
+            <wsdl2:output element="ns:removeUserResponse" wsaw:Action="urn:removeUserResponse"/>
+        </wsdl2:operation>
+        <wsdl2:operation name="addFollower" style="http://www.w3.org/ns/wsdl/style/rpc" wrpc:signature="args0 #in return #return " pattern="http://www.w3.org/ns/wsdl/in-out">
+            <wsdl2:input element="ns:addFollower" wsaw:Action="urn:addFollower"/>
+            <wsdl2:output element="ns:addFollowerResponse" wsaw:Action="urn:addFollowerResponse"/>
+        </wsdl2:operation>
+        <wsdl2:operation name="getMyFollowers" style="http://www.w3.org/ns/wsdl/style/rpc http://www.w3.org/ns/wsdl/style/iri http://www.w3.org/ns/wsdl/style/multipart" wrpc:signature="return #return " pattern="http://www.w3.org/ns/wsdl/in-out">
+            <wsdl2:input element="ns:getMyFollowers" wsaw:Action="urn:getMyFollowers"/>
+            <wsdl2:output element="ns:getMyFollowersResponse" wsaw:Action="urn:getMyFollowersResponse"/>
+        </wsdl2:operation>
+        <wsdl2:operation name="unfollow" style="http://www.w3.org/ns/wsdl/style/rpc" wrpc:signature="args0 #in return #return " pattern="http://www.w3.org/ns/wsdl/in-out">
+            <wsdl2:input element="ns:unfollow" wsaw:Action="urn:unfollow"/>
+            <wsdl2:output element="ns:unfollowResponse" wsaw:Action="urn:unfollowResponse"/>
+        </wsdl2:operation>
+    </wsdl2:interface>
+    <wsdl2:binding name="WineSocialUPMSoap11Binding" interface="tns:ServiceInterface" type="http://www.w3.org/ns/wsdl/soap" wsoap:version="1.1">
+        <wsdl2:operation ref="tns:addWine" wsoap:action="urn:addWine">
+            <wsdl2:input/>
+            <wsdl2:output/>
+        </wsdl2:operation>
+        <wsdl2:operation ref="tns:rateWine" wsoap:action="urn:rateWine">
+            <wsdl2:input/>
+            <wsdl2:output/>
+        </wsdl2:operation>
+        <wsdl2:operation ref="tns:addUser" wsoap:action="urn:addUser">
+            <wsdl2:input/>
+            <wsdl2:output/>
+        </wsdl2:operation>
+        <wsdl2:operation ref="tns:getMyFollowerRates" wsoap:action="urn:getMyFollowerRates">
+            <wsdl2:input/>
+            <wsdl2:output/>
+        </wsdl2:operation>
+        <wsdl2:operation ref="tns:login" wsoap:action="urn:login">
+            <wsdl2:input/>
+            <wsdl2:output/>
+        </wsdl2:operation>
+        <wsdl2:operation ref="tns:getWines" wsoap:action="urn:getWines">
+            <wsdl2:input/>
+            <wsdl2:output/>
+        </wsdl2:operation>
+        <wsdl2:operation ref="tns:changePassword" wsoap:action="urn:changePassword">
+            <wsdl2:input/>
+            <wsdl2:output/>
+        </wsdl2:operation>
+        <wsdl2:operation ref="tns:removeWine" wsoap:action="urn:removeWine">
+            <wsdl2:input/>
+            <wsdl2:output/>
+        </wsdl2:operation>
+        <wsdl2:operation ref="tns:getMyRates" wsoap:action="urn:getMyRates">
+            <wsdl2:input/>
+            <wsdl2:output/>
+        </wsdl2:operation>
+        <wsdl2:operation ref="tns:logout" wsoap:action="urn:logout">
+            <wsdl2:input/>
+            <wsdl2:output/>
+        </wsdl2:operation>
+        <wsdl2:operation ref="tns:removeUser" wsoap:action="urn:removeUser">
+            <wsdl2:input/>
+            <wsdl2:output/>
+        </wsdl2:operation>
+        <wsdl2:operation ref="tns:addFollower" wsoap:action="urn:addFollower">
+            <wsdl2:input/>
+            <wsdl2:output/>
+        </wsdl2:operation>
+        <wsdl2:operation ref="tns:getMyFollowers" wsoap:action="urn:getMyFollowers">
+            <wsdl2:input/>
+            <wsdl2:output/>
+        </wsdl2:operation>
+        <wsdl2:operation ref="tns:unfollow" wsoap:action="urn:unfollow">
+            <wsdl2:input/>
+            <wsdl2:output/>
+        </wsdl2:operation>
+    </wsdl2:binding>
+    <wsdl2:binding name="WineSocialUPMSoap12Binding" interface="tns:ServiceInterface" type="http://www.w3.org/ns/wsdl/soap" wsoap:version="1.2">
+        <wsdl2:operation ref="tns:addWine" wsoap:action="urn:addWine">
+            <wsdl2:input/>
+            <wsdl2:output/>
+        </wsdl2:operation>
+        <wsdl2:operation ref="tns:rateWine" wsoap:action="urn:rateWine">
+            <wsdl2:input/>
+            <wsdl2:output/>
+        </wsdl2:operation>
+        <wsdl2:operation ref="tns:addUser" wsoap:action="urn:addUser">
+            <wsdl2:input/>
+            <wsdl2:output/>
+        </wsdl2:operation>
+        <wsdl2:operation ref="tns:getMyFollowerRates" wsoap:action="urn:getMyFollowerRates">
+            <wsdl2:input/>
+            <wsdl2:output/>
+        </wsdl2:operation>
+        <wsdl2:operation ref="tns:login" wsoap:action="urn:login">
+            <wsdl2:input/>
+            <wsdl2:output/>
+        </wsdl2:operation>
+        <wsdl2:operation ref="tns:getWines" wsoap:action="urn:getWines">
+            <wsdl2:input/>
+            <wsdl2:output/>
+        </wsdl2:operation>
+        <wsdl2:operation ref="tns:changePassword" wsoap:action="urn:changePassword">
+            <wsdl2:input/>
+            <wsdl2:output/>
+        </wsdl2:operation>
+        <wsdl2:operation ref="tns:removeWine" wsoap:action="urn:removeWine">
+            <wsdl2:input/>
+            <wsdl2:output/>
+        </wsdl2:operation>
+        <wsdl2:operation ref="tns:getMyRates" wsoap:action="urn:getMyRates">
+            <wsdl2:input/>
+            <wsdl2:output/>
+        </wsdl2:operation>
+        <wsdl2:operation ref="tns:logout" wsoap:action="urn:logout">
+            <wsdl2:input/>
+            <wsdl2:output/>
+        </wsdl2:operation>
+        <wsdl2:operation ref="tns:removeUser" wsoap:action="urn:removeUser">
+            <wsdl2:input/>
+            <wsdl2:output/>
+        </wsdl2:operation>
+        <wsdl2:operation ref="tns:addFollower" wsoap:action="urn:addFollower">
+            <wsdl2:input/>
+            <wsdl2:output/>
+        </wsdl2:operation>
+        <wsdl2:operation ref="tns:getMyFollowers" wsoap:action="urn:getMyFollowers">
+            <wsdl2:input/>
+            <wsdl2:output/>
+        </wsdl2:operation>
+        <wsdl2:operation ref="tns:unfollow" wsoap:action="urn:unfollow">
+            <wsdl2:input/>
+            <wsdl2:output/>
+        </wsdl2:operation>
+    </wsdl2:binding>
+    <wsdl2:binding name="WineSocialUPMHttpBinding" interface="tns:ServiceInterface" whttp:methodDefault="POST" type="http://www.w3.org/ns/wsdl/http">
+        <wsdl2:operation ref="tns:addWine" whttp:location="addWine">
+            <wsdl2:input/>
+            <wsdl2:output/>
+        </wsdl2:operation>
+        <wsdl2:operation ref="tns:rateWine" whttp:location="rateWine">
+            <wsdl2:input/>
+            <wsdl2:output/>
+        </wsdl2:operation>
+        <wsdl2:operation ref="tns:addUser" whttp:location="addUser">
+            <wsdl2:input/>
+            <wsdl2:output/>
+        </wsdl2:operation>
+        <wsdl2:operation ref="tns:getMyFollowerRates" whttp:location="getMyFollowerRates">
+            <wsdl2:input/>
+            <wsdl2:output/>
+        </wsdl2:operation>
+        <wsdl2:operation ref="tns:login" whttp:location="login">
+            <wsdl2:input/>
+            <wsdl2:output/>
+        </wsdl2:operation>
+        <wsdl2:operation ref="tns:getWines" whttp:location="getWines">
+            <wsdl2:input/>
+            <wsdl2:output/>
+        </wsdl2:operation>
+        <wsdl2:operation ref="tns:changePassword" whttp:location="changePassword">
+            <wsdl2:input/>
+            <wsdl2:output/>
+        </wsdl2:operation>
+        <wsdl2:operation ref="tns:removeWine" whttp:location="removeWine">
+            <wsdl2:input/>
+            <wsdl2:output/>
+        </wsdl2:operation>
+        <wsdl2:operation ref="tns:getMyRates" whttp:location="getMyRates">
+            <wsdl2:input/>
+            <wsdl2:output/>
+        </wsdl2:operation>
+        <wsdl2:operation ref="tns:logout" whttp:location="logout">
+            <wsdl2:input/>
+            <wsdl2:output/>
+        </wsdl2:operation>
+        <wsdl2:operation ref="tns:removeUser" whttp:location="removeUser">
+            <wsdl2:input/>
+            <wsdl2:output/>
+        </wsdl2:operation>
+        <wsdl2:operation ref="tns:addFollower" whttp:location="addFollower">
+            <wsdl2:input/>
+            <wsdl2:output/>
+        </wsdl2:operation>
+        <wsdl2:operation ref="tns:getMyFollowers" whttp:location="getMyFollowers">
+            <wsdl2:input/>
+            <wsdl2:output/>
+        </wsdl2:operation>
+        <wsdl2:operation ref="tns:unfollow" whttp:location="unfollow">
+            <wsdl2:input/>
+            <wsdl2:output/>
+        </wsdl2:operation>
+    </wsdl2:binding>
+    <wsdl2:service name="WineSocialUPM" interface="tns:ServiceInterface">
+        <wsdl2:endpoint name="WineSocialUPMHttpSoap11Endpoint" binding="tns:WineSocialUPMSoap11Binding" address="http://localhost:8080/axis2/services/WineSocialUPM"/>
+        <wsdl2:endpoint name="WineSocialUPMHttpSoap12Endpoint" binding="tns:WineSocialUPMSoap12Binding" address="http://localhost:8080/axis2/services/WineSocialUPM"/>
+        <wsdl2:endpoint name="WineSocialUPMHttpEndpoint" binding="tns:WineSocialUPMHttpBinding" address="http://localhost:8080/axis2/services/WineSocialUPM"/>
+    </wsdl2:service>
+</wsdl2:description>
